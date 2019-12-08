@@ -9,7 +9,10 @@ const Random = (): React.ReactElement => {
 
   return (
     <>
-      {data && <p>{JSON.stringify(data.pokemons, null, 2)}</p>}
+      {data &&
+        data.pokemons.map((p: { id: string; name: string }) => {
+          return <p key={p.id}> {p.name}</p>
+        })}
       {!data && <Loading />}
       <button
         onClick={async (): Promise<void> => {

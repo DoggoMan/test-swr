@@ -7,6 +7,7 @@ import Loading from './Loading'
 import Home from './Home'
 import { swrConfig } from './Api'
 import { SWRConfig } from 'swr'
+import Layout from './Layout'
 
 const routes = mount({
   '/': route({
@@ -40,6 +41,7 @@ const Router: FC = () => {
       <BrowserRouter routes={routes}>
         <Suspense fallback={Loading}>
           <SWRConfig value={swrConfig}>
+            <Layout />
             <View />
           </SWRConfig>
         </Suspense>
